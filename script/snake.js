@@ -1,5 +1,5 @@
 var Game = {};
-Game.fps = 2;
+Game.fps = 5;
 
 const WORLD_SIZE = 20; //how many rectangles fit in canvas
 const SNAKE_INIT_SIZE = 5;
@@ -152,10 +152,12 @@ function generateApple(){
   	x = Math.floor(Math.random() * (max - min)) + min;
   	y = Math.floor(Math.random() * (max - min)) + min;
 
-	if (xMapping[x] && yMapping[y])
-		generateApple();
-	else{
-		apple.x = x;
-		apple.y = y;
+	for (var i = 0; i < snake.length; i++) {
+		if (snake[i][0] == x && snake[i][1] == y){
+			generateApple();
+			return;
+		}
 	}
+	apple.x = x;
+	apple.y = y;	
 }
