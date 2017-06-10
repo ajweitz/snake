@@ -29,13 +29,11 @@ $(document).ready(function(){
 	reDraw();
 
 	document.onkeydown = checkKey;
-
 	Game._intervalId = setInterval(Game.run, 1000 / Game.fps);
 
 });
 
 Game.run = function() {
-	// console.log("hi");
 	update();
   	reDraw();
 };
@@ -67,16 +65,11 @@ function updateCanvasSize(size){
 function init(){
 	snake = [];
 	direction = directions.NONE;
-	xMapping.fill(false);
-	yMapping.fill(false);
 
 	head.x = WORLD_SIZE/2;
 	head.y = WORLD_SIZE/2;
 	tail.x = head.x - SNAKE_INIT_SIZE+1;
 	tail.y = head.x;
-	yMapping.fill(true,tail.y,head.y+1);
-	xMapping.fill(true,tail.x,head.x+1);
-
 	for (var i = SNAKE_INIT_SIZE-1; i >= 0; i--) {
 		snake.push([tail.x+i,tail.y]);
 	}
