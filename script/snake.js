@@ -5,8 +5,6 @@ const WORLD_SIZE = 20; //how many rectangles fit in canvas
 const SNAKE_INIT_SIZE = 5;
 var directions = Object.freeze({"NONE":0, "LEFT":1, "UP":2, "RIGHT":3,"DOWN":4})
 
-var xMapping = new Array(WORLD_SIZE);
-var yMapping = new Array(WORLD_SIZE);
 var snake = [];
 var direction;
 var head = {};
